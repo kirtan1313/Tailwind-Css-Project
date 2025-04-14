@@ -1,23 +1,22 @@
 
+import { Route, Router, Routes } from 'react-router'
 import './App.css'
-import Banner from './Componets/Banner/Banner'
-import Category from './Componets/Category/Category'
-import Footer from './Componets/Footer/Footer'
-import Header from './Componets/Header/Header'
-import PaperPro from './Componets/PaperPro/PaperPro'
-import Snacks from './Componets/Snacks/Snacks'
+import User from './Componets/User/User'
+import Wraper from './Componets/Wraper/Wraper'
+import Cart from './Componets/Cart/Cart'
+
 
 function App() {
-  
+
 
   return (
     <>
-      <Header />
-      <Banner />
-       <Category />
-      <PaperPro />
-      <Snacks />
-      <Footer /> 
+      
+      <Routes>
+        <Route path='/' element={<Wraper />}/>
+        <Route path='/user' element={<User />} />
+        <Route path='/cart' element={<Cart/>}/>
+      </Routes>
     </>
   )
 }

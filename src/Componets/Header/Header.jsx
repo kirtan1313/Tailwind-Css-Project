@@ -5,6 +5,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import './Header.css';
 import { BsCart3 } from 'react-icons/bs';
 import { FaRegHeart, FaRegUserCircle } from 'react-icons/fa';
+import { Link, Links } from 'react-router';
 
 function Header() {
     const [showSearchModal, setShowSearchModal] = useState(false);
@@ -35,9 +36,9 @@ function Header() {
                             </p>
                         </div>
                     </div>
-                    <div className='block xl:hidden text-3xl'>
+                    <Link className='block xl:hidden text-3xl' to={'/user'}>
                         <FaRegUserCircle />
-                    </div>
+                    </Link>
                 </div>
                 <div
                     className="mt-3 xl:mt-0 search flex items-center bg-[rgba(248,248,248)] w-[100%]  xl:w-180 p-4 rounded-xl cursor-pointer"
@@ -52,13 +53,13 @@ function Header() {
                         className="outline-none ps-3 bg-transparent"
                     />
                 </div>
-                <div className="login  gap-3 hidden xl:flex">
-                    <p className="bg-[#e9c46a] w-10 h-10 rounded-[50%] flex justify-center items-center hover:bg-[#64B946] duration-600">
-                        <BsCart3 className="text-white text-[22px]" />
-                    </p>
-                    <p className="bg-[#e9c46a] w-10 h-10 rounded-[50%] flex justify-center items-center hover:bg-[#64B946] duration-600">
-                        <FaRegHeart className="text-white text-[22px]" />
-                    </p>
+                <div className="login gap-3 hidden xl:flex">
+                    <Link to={'/cart'} className="bg-[#e9c46a] w-11 h-11 rounded-full flex justify-center items-center hover:bg-[#64B946] transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg">
+                        <BsCart3 className="text-white text-[24px]" />
+                    </Link>
+                    {/* <p className="bg-[#e9c46a] w-11 h-11 rounded-full flex justify-center items-center hover:bg-[#64B946] transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg">
+                        <FaRegHeart className="text-white text-[24px]" />
+                    </p> */}
                 </div>
             </div>
 
