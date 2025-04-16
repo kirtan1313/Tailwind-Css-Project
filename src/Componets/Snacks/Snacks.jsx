@@ -9,7 +9,14 @@ import "swiper/css/scrollbar";
 import { CiStopwatch } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export default function Snacks() {
+export default function Snacks({setSnackProdctId}) {
+
+    const handleSnacksId=(id)=>{
+        setSnackProdctId(id)
+        console.log('snackId',id);
+        
+    }
+
     return (
         <div className="max-w-screen-xl mx-auto px-4">
             {/* Section Header */}
@@ -50,8 +57,8 @@ export default function Snacks() {
                 }}
             >
                 {SnacksProduct.map((item, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="w-full h-80 border border-gray-300 rounded-2xl p-3 bg-white transition-transform ">
+                    <SwiperSlide >
+                        <div key={index} className="w-full h-80 border border-gray-300 rounded-2xl p-3 bg-white transition-transform ">
                             {/* Product Image */}
                             <div className="dairy-img w-full">
                                 <img
@@ -74,11 +81,11 @@ export default function Snacks() {
                                 {item.dec}
                             </div>
                             {/* Price and Add Button */}
-                            <div className="flex pt-2 justify-between items-center">
+                            <div className="flex pt-4 justify-between items-center">
                                 <div className="price font-bold text-[14px] text-gray-700">
                                     ₹{item.price}
                                 </div>
-                                <button className="bg-green-100 text-green-600 py-1 px-4 rounded-lg border border-green-400 hover:bg-green-200">
+                                <button onClick={()=>handleSnacksId(item.id)} className="bg-green-100 cursor-pointer text-green-600 py-1 px-4 rounded-lg border border-green-400 hover:bg-green-200">
                                     Add
                                 </button>
                             </div>

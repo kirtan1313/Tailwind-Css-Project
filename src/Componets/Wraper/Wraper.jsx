@@ -7,14 +7,14 @@ import Snacks from '../Snacks/Snacks'
 import Footer from '../Footer/Footer'
 
 
-function Wraper() {
+function Wraper({setProductCartId,setPaperProdctId,setSnackProdctId,paperCartProduct,category,snackCartProduct}) {
     return (
         <>
-            <Header />
+            <Header  snackCartProduct={snackCartProduct} paperCartProduct={paperCartProduct} category={category}/>
             <Banner />
-            <Category />
-            <PaperPro />
-            <Snacks />
+            <Category setProductCartId={setProductCartId}/>
+            <PaperPro setPaperProdctId={setPaperProdctId}/>
+            <Snacks setSnackProdctId={setSnackProdctId}/>
             <Footer />
         </>
     )

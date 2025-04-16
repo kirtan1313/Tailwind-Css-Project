@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../../assets/Images/logo.webp';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { IoSearchOutline } from 'react-icons/io5';
 import './Header.css';
 import { BsCart3 } from 'react-icons/bs';
 import { FaRegHeart, FaRegUserCircle } from 'react-icons/fa';
-import { Link, Links } from 'react-router';
+import { Link } from 'react-router';
 
-function Header() {
+function Header({ category = [], paperCartProduct = [], snackCartProduct = [] }) {
     const [showSearchModal, setShowSearchModal] = useState(false);
+    const [allProductLength, setAllProductLength] = useState(0);
+
+    // Update allProductLength when any product list changes
+    useEffect(() => {
+        const combinedProducts = [...category, ...paperCartProduct, ...snackCartProduct];
+        setAllProductLength(combinedProducts.length);
+    }, [category, paperCartProduct, snackCartProduct]);
 
     const handleClick = () => {
         setShowSearchModal(true);
-
     };
 
     const handleClose = () => {
@@ -26,7 +32,7 @@ function Header() {
                 <div className="logo w-30 hidden xl:block">
                     <img src={Logo} alt="logo" className="w-100" />
                 </div>
-                <div className="flex justify-between items-center delivery cursor-pointer " onClick={handleClick}>
+                <div className="flex justify-between items-center delivery cursor-pointer" onClick={handleClick}>
                     <div>
                         <p className="font-bold text-[18px]">Delivery in 8 minutes</p>
                         <div className="flex items-center">
@@ -36,13 +42,27 @@ function Header() {
                             </p>
                         </div>
                     </div>
-                    <Link className='block xl:hidden text-3xl' to={'/user'}>
-                        <FaRegUserCircle />
-                    </Link>
+                    <div className='flex items-center'>
+                        <Link className="block xl:hidden text-3xl" to={'/user'}>
+                            <FaRegUserCircle />
+                        </Link>
+                        <div className="login gap-3 flex xl:hidden ps-3">
+                            <Link
+                                to={'/cart'}
+                                className="relative bg-[#FFC707] w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#64B946] transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg"
+                            >
+                                <BsCart3 className="text-white text-[24px]" />
+                                {allProductLength > 0 && (
+                                    <span className="absolute top-[-5px] right-[-7px] bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                        {allProductLength}
+                                    </span>
+                                )}
+                            </Link>
+                        </div>
+                    </div>
                 </div>
                 <div
-                    className="mt-3 xl:mt-0 search flex items-center bg-[rgba(248,248,248)] w-[100%]  xl:w-180 p-4 rounded-xl cursor-pointer"
-
+                    className="mt-3 xl:mt-0 search flex items-center bg-[rgba(248,248,248)] w-[100%] xl:w-180 p-4 rounded-xl cursor-pointer"
                 >
                     <p className="text-[22px]">
                         <IoSearchOutline />
@@ -54,18 +74,24 @@ function Header() {
                     />
                 </div>
                 <div className="login gap-3 hidden xl:flex">
-                    <Link to={'/cart'} className="bg-[#e9c46a] w-11 h-11 rounded-full flex justify-center items-center hover:bg-[#64B946] transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg">
+                    {/* Cart Icon with Badge */}
+                    <Link
+                        to={'/cart'}
+                        className="relative bg-[#FFC707] w-11 h-11 rounded-full flex justify-center items-center hover:bg-[#64B946] transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg"
+                    >
                         <BsCart3 className="text-white text-[24px]" />
+                        {allProductLength > 0 && (
+                            <span className="absolute top-[-5px] right-[-7px] bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                {allProductLength}
+                            </span>
+                        )}
                     </Link>
-                    {/* <p className="bg-[#e9c46a] w-11 h-11 rounded-full flex justify-center items-center hover:bg-[#64B946] transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg">
-                        <FaRegHeart className="text-white text-[24px]" />
-                    </p> */}
                 </div>
             </div>
 
             {/* Modal Section */}
             {showSearchModal && (
-                <div className="fixed hidden  inset-0 bg-[rgba(0,0,0,0.5)] z-50 xl:flex items-center justify-center">
+                <div className="fixed hidden inset-0 bg-[rgba(0,0,0,0.5)] z-50 xl:flex items-center justify-center">
                     <div className="bg-[#F4F6FC] p-6 rounded-lg w-[600px] top-[110px] left-[210px]">
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-lg font-bold">Change Location</h2>

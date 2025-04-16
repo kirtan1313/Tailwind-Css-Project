@@ -7,7 +7,7 @@ import babycare from "../../assets/Images/babycare.jpg";
 import Data from "../../../data.js";
 
 function Banner() {
-    console.log("img", Android);
+    // console.log("img", Android);
 
     return (
         <>

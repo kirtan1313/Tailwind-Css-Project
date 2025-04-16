@@ -9,7 +9,15 @@ import "swiper/css/scrollbar";
 import { CiStopwatch } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-const DairySlider = () => {
+const DairySlider = ({setProductCartId}) => {
+
+    const handleCardClick =(id)=>{
+        setProductCartId(id)
+        console.log('id => ',id);
+    }
+
+
+
     return (
         <div className="max-w-screen-xl mx-auto px-4">
             {/* Slider Header */}
@@ -50,8 +58,8 @@ const DairySlider = () => {
                 }}
             >
                 {Dairypro.map((item, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="w-full h-80 border border-gray-300 rounded-2xl p-3 bg-white transition-transform ">
+                    <SwiperSlide >
+                        <div  className="w-full h-80 border border-gray-300 rounded-2xl p-3 bg-white transition-transform ">
                             {/* Product Image */}
                             <div className="dairy-img w-full">
                                 <img
@@ -74,11 +82,11 @@ const DairySlider = () => {
                                 {item.dec}
                             </div>
                             {/* Price and Add Button */}
-                            <div className="flex pt-2 justify-between items-center">
+                            <div className="flex pt-6 justify-between items-center">
                                 <div className="price font-bold text-[14px] text-gray-700">
                                     ₹{item.price}
                                 </div>
-                                <button className="bg-green-100 text-green-600 py-1 px-4 rounded-lg border border-green-400 hover:bg-green-200">
+                                <button onClick={()=>handleCardClick(item.id)} className="bg-green-100 text-green-600 py-1 cursor-pointer px-4 rounded-lg border border-green-400 hover:bg-green-200">
                                     Add
                                 </button>
                             </div>

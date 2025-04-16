@@ -17,84 +17,98 @@ import Dairy14 from './src/assets/Images/Dairy-14.jpg'
 
 const dairyProduct = [
     {
+        id: 1,
         img:Dairy1,
         title:'Amul Gold Full Cream Fresh Milk',
         dec:'500 ml',
         price:34
     },
     {
+        id: 2,
         img:Dairy2,
         title:'Amul Taaza Toned Fresh Milk',
         dec:'500 ml',
         price:27
     },
     {
+        id: 3,
         img:Dairy3,
         title:'Amul Masti Curd',
         dec:'200 ml',
         price:23
     },
     {
+        id: 4,
         img:Dairy4,
         title:'Amul Masti Cup Curd',
         dec:'400 ml',
         price:45
     },
     {
+        id: 5,
         img:Dairy5,
         title:'Sumul Low Calorie Curd',
         dec:'1 KG',
         price:60
     },
     {
+        id: 6,
         img:Dairy6,
         title:'Amul Cheese Cubes',
         dec:'200 ml',
         price:134
     },
     {
+        id: 7,
         img:Dairy7,
         title:'Amul Salted Butter',
         dec:'100 ml',
         price:60
     },
     {
+        id: 8,
         img:Dairy8,
         title:'Amul Shakti Fresh Milk',
         dec:'500 ml',
         price:31
     },
     {
+        id: 9,
         img:Dairy9,
         title:'Super Crustless Big Slice White Bread',
         dec:'600 ml',
         price:80
     },
     {
+        id: 10,
         img:Dairy10,
         title:'Amul Blend Diced Cheese',
         dec:'200 G',
         price:125
     },
     {
+        id: 11,
         img:Dairy11,
         title:'Amul Gold Milk',
         dec:'1 ltr',
         price:80
     },
     {
+        id: 12,
         img:Dairy12,
         title:'Amul Gold Milk',
         dec:'250 g',
         price:50
     },
     {
+        id: 13,
         img:Dairy13,
         title:'Amul Gold Milk',
         dec:'1 ltr',
         price:74
     },
     {
+        id: 14,
         img:Dairy14,
         title:'Amul Gold Milk',
         dec:'400 g',
