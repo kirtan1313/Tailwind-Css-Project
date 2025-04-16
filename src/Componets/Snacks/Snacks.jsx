@@ -49,7 +49,7 @@ export default function Snacks({setSnackProdctId}) {
                     nextEl: '#n-btn-2', // Link custom next button
                 }}
                 breakpoints={{
-                    380: { slidesPerView: 2, spaceBetween: 15 }, // 2 cards for extra-small screens
+                    350: { slidesPerView: 2, spaceBetween: 15 }, // 2 cards for extra-small screens
                     640: { slidesPerView: 3, spaceBetween: 15 }, // Small screens
                     768: { slidesPerView: 4, spaceBetween: 20 }, // Medium screens
                     1024: { slidesPerView: 5, spaceBetween: 25 }, // Large screens
